@@ -6,33 +6,34 @@
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".MainActivity"
-    tools:layout_editor_absoluteX="-4dp"
+    tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp">
 
     <TextView
-        android:id="@+id/titulo1"
+        android:id="@+id/mainTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Urubu do PIX"
+        android:text="@string/txt_title"
         android:textColor="#3A28EA"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.195" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
-        android:backgroundTint="#488700"
-        android:contentDescription="Salvar registro"
+        android:backgroundTint="#336000"
+        android:contentDescription="@string/btn_save"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titulo1"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
         app:layout_constraintVertical_bias="0.843"
         app:srcCompat="@android:drawable/ic_menu_save" />
 
@@ -44,13 +45,15 @@
         android:layout_marginVertical="20dp"
         android:height="20dp"
         android:ems="10"
-        android:hint="Insira o primeiro nome"
+        android:hint="@string/input_first_name"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textColorHint="#8D8D8D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="160dp" />
+        tools:layout_editor_absoluteY="160dp"
+        tools:ignore="MissingConstraints"
+        android:autofillHints="name" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -61,12 +64,13 @@
         android:layout_marginTop="20dp"
         android:height="20dp"
         android:ems="10"
-        android:hint="Insira o email"
+        android:hint="@string/input_email"
         android:inputType="textEmailAddress"
         android:textColor="#000000"
         android:textColorHint="#8D8D8D"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="20dp"
+        android:autofillHints="email" />
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -77,12 +81,13 @@
         android:layout_marginTop="20dp"
         android:height="20dp"
         android:ems="10"
-        android:hint="Insira o telefone"
+        android:hint="@string/input_phone"
         android:inputType="phone"
         android:textColor="#000000"
         android:textColorHint="#8D8D8D"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="20dp"
+        android:autofillHints="phone" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -90,10 +95,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#C80000"
-        android:contentDescription="Limpar campos"
+        android:contentDescription="@string/btn_clear_fields"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/titulo1"
+        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
         app:layout_constraintVertical_bias="0.843"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
 
@@ -106,12 +111,13 @@
         android:layout_marginTop="20dp"
         android:height="20dp"
         android:ems="10"
-        android:hint="Insira o sobrenome"
+        android:hint="@string/input_last_name"
         android:inputType="textPersonName"
         android:textColor="#000000"
         android:textColorHint="#8D8D8D"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        android:autofillHints="lastname" />
 
     <Button
         android:layout_width="match_parent"
@@ -119,7 +125,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#3F51B5"
-        android:text="FINALIZAR"
+        android:text="@string/btn_end_form"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,8 +136,9 @@
         android:layout_width="49dp"
         android:layout_height="33dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toStartOf="@+id/titulo1"
+        app:layout_constraintEnd_toStartOf="@+id/mainTitle"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/flamengoimg" />
+        app:srcCompat="@drawable/flamengoimg"
+        android:contentDescription="@string/img_urubu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

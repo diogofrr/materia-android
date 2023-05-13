@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">App Lista Curso</string>
+    <string name="txt_title">Urubu do PIX</string>
+    <string name="btn_save">Salvar registro</string>
+    <string name="input_first_name">Insira o primeiro nome</string>
+    <string name="input_phone">Insira o telefone</string>
+    <string name="input_email">Insira o email</string>
+    <string name="btn_clear_fields">Limpar campos</string>
+    <string name="input_last_name">Insira o sobrenome</string>
+    <string name="btn_end_form">FINALIZAR</string>
+    <string name="img_urubu">Imagem do urubu do pix</string>
 </resources>
