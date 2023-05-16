@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Gerenciador de tarefas</string>
+    <string name="mainTitle">Tarefas</string>
+    <string name="nova_tarefa">+ Criar nova tarefa</string>
+</resources>
