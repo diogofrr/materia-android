@@ -9,4 +9,5 @@
     <string name="input_last_name">Insira o sobrenome</string>
     <string name="btn_end_form">FINALIZAR</string>
     <string name="img_urubu">Imagem do urubu do pix</string>
+    <string name="title">Lista VIP</string>
 </resources>
