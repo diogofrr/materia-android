@@ -10,4 +10,7 @@
     <string name="btn_end_form">FINALIZAR</string>
     <string name="img_urubu">Imagem do urubu do pix</string>
     <string name="title">Lista VIP</string>
+    <string name="insira_o_curso_desejado">Insira o curso desejado</string>
+    <string name="clear">Limpar</string>
+    <string name="save">Salvar</string>
 </resources>

@@ -7,4 +7,5 @@
     <string name="input_peso">Digite seu peso (kg):</string>
     <string name="input_altura">Digite sua altura (m):</string>
     <string name="imc_title">Calcule seu IMC</string>
+    <string name="calcularBtn">CALCULAR</string>
 </resources>

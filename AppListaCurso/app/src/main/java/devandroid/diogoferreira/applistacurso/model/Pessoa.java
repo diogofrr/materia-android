@@ -1,4 +1,4 @@
-package model;
+package devandroid.diogoferreira.applistacurso.model;
 
 public class Pessoa {
     private String primeiroNome;
@@ -13,35 +13,35 @@ public class Pessoa {
         this.telefoneDeContato = telefoneDeContato;
     }
 
-    private String getPrimeiroNome() {
+    public String getPrimeiroNome() {
         return primeiroNome;
     }
 
-    private String getSegundoNome() {
+    public String getSegundoNome() {
         return segundoNome;
     }
 
-    private String getNomeCursoDesejado() {
+    public String getNomeCursoDesejado() {
         return nomeCursoDesejado;
     }
 
-    private String getTelefoneDeContato() {
+    public String getTelefoneDeContato() {
         return telefoneDeContato;
     }
 
-    private void setPrimeiroNome(String primeiroNome) {
+    public void setPrimeiroNome(String primeiroNome) {
         this.primeiroNome = primeiroNome;
     }
 
-    private void setSegundoNome(String segundoNome) {
+    public void setSegundoNome(String segundoNome) {
         this.segundoNome = segundoNome;
     }
 
-    private void setNomeCursoDesejado(String nomeCursoDesejado) {
+    public void setNomeCursoDesejado(String nomeCursoDesejado) {
         this.nomeCursoDesejado = nomeCursoDesejado;
     }
 
-    private void setTelefoneDeContato(String telefoneDeContato) {
+    public void setTelefoneDeContato(String telefoneDeContato) {
         this.telefoneDeContato = telefoneDeContato;
     }
 }

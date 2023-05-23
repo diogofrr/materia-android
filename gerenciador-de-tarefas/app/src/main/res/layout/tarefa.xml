@@ -12,20 +12,19 @@
         android:layout_height="110dp"
         android:layout_marginHorizontal="16dp"
         android:ems="10"
-        android:hint="Insira a descrição da tarefa"
+        android:hint="@string/inputTarefa"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="244dp" />
+        tools:layout_editor_absoluteY="247dp" />
 
     <TextView
-        android:id="@+id/tarefaTitulo"
+        android:id="@+id/tituloLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="Título"
-        app:layout_constraintBottom_toTopOf="@+id/tituloTarefa"
+        android:text="@string/tituloPrincipal"
+        app:layout_constraintBottom_toTopOf="@+id/tituloInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent" />
@@ -36,31 +35,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:hint="DD/MM/YYYY"
+        android:hint="@string/data"
         android:inputType="date"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="392dp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/descricaoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="Descrição"
+        android:text="@string/descricao"
         app:layout_constraintBottom_toTopOf="@+id/editTextDate3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloTarefa"
+        app:layout_constraintTop_toBottomOf="@+id/tituloInput"
         app:layout_constraintVertical_bias="0.9" />
 
     <EditText
-        android:id="@+id/tituloTarefa"
+        android:id="@+id/tituloInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:ems="10"
-        android:hint="Insira o título da tarefa"
+        android:hint="@string/tarefa"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
@@ -72,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="Data de vencimento"
+        android:text="@string/vencimento"
         app:layout_constraintBottom_toTopOf="@+id/editTextDate5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.055"
@@ -91,22 +90,23 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/editarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Editar tarefa"
+            android:text="@string/editar_tarefa"
             android:textColor="#FFFFFF"
             android:textSize="34sp"
             tools:layout_editor_absoluteX="113dp"
             tools:layout_editor_absoluteY="14dp" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/voltarTelaPrincipal"
             android:layout_width="37dp"
             android:layout_height="34dp"
             android:background="#3F51B5"
+            android:contentDescription="@string/todo"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/editarTitle"
             app:layout_constraintHorizontal_bias="0.21"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -126,38 +126,42 @@
         tools:layout_editor_absoluteY="392dp" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/deletebtn"
         android:layout_width="43dp"
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="296dp"
         android:backgroundTint="#A50000"
-        app:layout_constraintBottom_toTopOf="@+id/tarefaTitulo"
+        app:layout_constraintBottom_toTopOf="@+id/tituloLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/savebtn"
         android:layout_width="43dp"
         android:layout_height="46dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:backgroundTint="#4CAF50"
-        app:layout_constraintBottom_toTopOf="@+id/tituloTarefa"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintBottom_toTopOf="@+id/tituloInput"
+        app:layout_constraintEnd_toStartOf="@+id/deletebtn"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
         app:layout_constraintVertical_bias="0.2"
-        app:srcCompat="@android:drawable/ic_menu_save" />
+        app:srcCompat="@android:drawable/ic_menu_save"
+        android:contentDescription="TODO"
+        tools:ignore="ContentDescription" />
 
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Concluir tarefa"
+        android:text="@string/concluir_tarefa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +174,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#4CAF50"
-        android:text="SALVAR"
+        android:text="@string/salvar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
