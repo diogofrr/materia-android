@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,19 +39,39 @@ public class MainActivity extends AppCompatActivity {
         save = findViewById(R.id.save);
         clear = findViewById(R.id.clear);
 
-        pessoas.add(new Pessoa("Diogo", "Ferreira", "Téc. Desenvolvimento de Sistemas", "31971890386"));
-        pessoas.add(new Pessoa("Pedro", "Augusto", "Téc. Desenvolvimento de Sistemas", "34940028922"));
+        clear.setOnClickListener(view -> clearFields());
 
-        Log.i("POOAndroid", pessoas.get(0).toString());
-        Log.i("POOAndroid", pessoas.get(1).toString());
+        send.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this, "Lista finalizada", Toast.LENGTH_LONG).show();
+            finish();
+        });
 
-        firstName.setText(pessoas.get(0).getPrimeiroNome());
-        secondName.setText(pessoas.get(0).getSegundoNome());
-        phone.setText(pessoas.get(0).getTelefoneDeContato());
-        course.setText(pessoas.get(0).getNomeCursoDesejado());
+        save.setOnClickListener(view -> savePerson());
     }
 
-    private void createPerson(){
+    private void clearFields(){
+        firstName.setText("");
+        secondName.setText("");
+        phone.setText("");
+        course.setText("");
+    }
 
+    private void savePerson(){
+        String firstNameInput = firstName.getText().toString();
+        String secondNameInput = secondName.getText().toString();
+        String phoneInput = phone.getText().toString();
+        String courseInput = course.getText().toString();
+        Pessoa novaPessoa;
+
+        if(firstNameInput.equals("") || secondNameInput.equals("") || phoneInput.equals("") || courseInput.equals("")){
+            Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
+        } else {
+            novaPessoa = new Pessoa(firstNameInput, secondNameInput, phoneInput, courseInput);
+            pessoas.add(novaPessoa);
+            clearFields();
+            Toast.makeText(MainActivity.this, "Usuário salvo com sucesso!", Toast.LENGTH_LONG).show();
+        }
+
+        Log.i("POOAndroid", "Total: " + pessoas.size());
     }
 }

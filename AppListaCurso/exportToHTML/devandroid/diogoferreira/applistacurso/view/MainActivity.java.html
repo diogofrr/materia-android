@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">devandroid.diogoferreira.applistacurso.view</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.util.Log</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.Toast</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.ArrayList</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">devandroid.diogoferreira.applistacurso.R</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">devandroid.diogoferreira.applistacurso.model.Pessoa</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+    <span class="s1">ArrayList&lt;Pessoa&gt; pessoas = </span><span class="s0">new </span><span class="s1">ArrayList&lt;&gt;()</span><span class="s0">;</span>
+
+    <span class="s1">EditText firstName</span><span class="s0">;</span>
+    <span class="s1">EditText secondName</span><span class="s0">;</span>
+    <span class="s1">EditText phone</span><span class="s0">;</span>
+    <span class="s1">EditText course</span><span class="s0">;</span>
+
+    <span class="s1">Button send</span><span class="s0">;</span>
+    <span class="s1">Button save</span><span class="s0">;</span>
+    <span class="s1">Button clear</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span><span class="s0">;</span>
+
+        <span class="s1">firstName = findViewById(R.id.firstName)</span><span class="s0">;</span>
+        <span class="s1">secondName = findViewById(R.id.secondName)</span><span class="s0">;</span>
+        <span class="s1">phone = findViewById(R.id.phone)</span><span class="s0">;</span>
+        <span class="s1">course = findViewById(R.id.course)</span><span class="s0">;</span>
+
+        <span class="s1">send = findViewById(R.id.send)</span><span class="s0">;</span>
+        <span class="s1">save = findViewById(R.id.save)</span><span class="s0">;</span>
+        <span class="s1">clear = findViewById(R.id.clear)</span><span class="s0">;</span>
+
+        <span class="s1">clear.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">clearFields()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">send.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">Toast.makeText(MainActivity.</span><span class="s0">this, </span><span class="s2">&quot;Lista finalizada&quot;</span><span class="s0">, </span><span class="s1">Toast.LENGTH_LONG).show()</span><span class="s0">;</span>
+                <span class="s1">finish()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+        <span class="s1">save.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">onClick(View view) {</span>
+                <span class="s1">savePerson()</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+       <span class="s3">/*pessoas.add(new Pessoa(&quot;Diogo&quot;, &quot;Ferreira&quot;, &quot;Téc. Desenvolvimento de Sistemas&quot;, &quot;31971890386&quot;)); 
+        pessoas.add(new Pessoa(&quot;Pedro&quot;, &quot;Augusto&quot;, &quot;Téc. Desenvolvimento de Sistemas&quot;, &quot;34940028922&quot;)); 
+ 
+        firstName.setText(pessoas.get(0).getPrimeiroNome()); 
+        secondName.setText(pessoas.get(0).getSegundoNome()); 
+        phone.setText(pessoas.get(0).getTelefoneDeContato()); 
+        course.setText(pessoas.get(0).getNomeCursoDesejado());*/</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">clearFields(){</span>
+        <span class="s1">firstName.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">secondName.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">phone.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">course.setText(</span><span class="s2">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">private void </span><span class="s1">savePerson(){</span>
+        <span class="s1">String firstNameInput = firstName.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">String secondNameInput = secondName.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">String phoneInput = phone.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">String courseInput = course.getText().toString()</span><span class="s0">;</span>
+        <span class="s1">Pessoa novaPessoa</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(firstNameInput.equals(</span><span class="s2">&quot;&quot;</span><span class="s1">) || secondNameInput.equals(</span><span class="s2">&quot;&quot;</span><span class="s1">) || phoneInput.equals(</span><span class="s2">&quot;&quot;</span><span class="s1">) || courseInput.equals(</span><span class="s2">&quot;&quot;</span><span class="s1">)){</span>
+            <span class="s1">Toast.makeText(MainActivity.</span><span class="s0">this, </span><span class="s2">&quot;Verifique os campos e tente novamente.&quot;</span><span class="s0">, </span><span class="s1">Toast.LENGTH_LONG).show()</span><span class="s0">;</span>
+        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+            <span class="s1">novaPessoa = </span><span class="s0">new </span><span class="s1">Pessoa(firstNameInput</span><span class="s0">, </span><span class="s1">secondNameInput</span><span class="s0">, </span><span class="s1">phoneInput</span><span class="s0">, </span><span class="s1">courseInput)</span><span class="s0">;</span>
+            <span class="s1">pessoas.add(novaPessoa)</span><span class="s0">;</span>
+            <span class="s1">clearFields()</span><span class="s0">;</span>
+            <span class="s1">Toast.makeText(MainActivity.</span><span class="s0">this, </span><span class="s2">&quot;Usuário salvo com sucesso!&quot;</span><span class="s0">, </span><span class="s1">Toast.LENGTH_LONG).show()</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">Log.i(</span><span class="s2">&quot;POOAndroid&quot;</span><span class="s0">, </span><span class="s2">&quot;Total: &quot; </span><span class="s1">+ pessoas.size())</span><span class="s0">;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span></pre>
+</body>
+</html>
