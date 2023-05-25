@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Lista de Tarefas</string>
+    <string name="criar_tarefa">CRIAR TAREFA</string>
+    <string name="descricao">Descrição</string>
+    <string name="tarefa">Tarefa</string>
+    <string name="data">Data</string>
+    <string name="placeholderTarefa">Insira o nome da tarefa</string>
+    <string name="placeholderDescricao">Insira a descrição</string>
+    <string name="placeholderData">DD/MM/YYYY</string>
+    <string name="salvarbtn">Salvar</string>
+    <string name="limpar">Limpar</string>
+    <string name="fechar">TODO</string>
+</resources>
