@@ -1,4 +1,4 @@
-package devandroid.diogoferreira.agendadecompromissos;
+package devandroid.diogoferreira.agendadecompromissos.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,11 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import devandroid.diogoferreira.agendadecompromissos.R;
 import devandroid.diogoferreira.agendadecompromissos.model.Compromisso;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final ArrayList<Compromisso> compromissos = new ArrayList<>();
+    private ArrayList<Compromisso> compromissos = new ArrayList<>();
 
     EditText titleInput;
     EditText descriptionInput;
@@ -36,10 +37,18 @@ public class MainActivity extends AppCompatActivity {
         dateInput = findViewById(R.id.dateInput);
         hourInput = findViewById(R.id.hourInput);
 
+        closeBtn = findViewById(R.id.closeBtn);
+        clearBtn = findViewById(R.id.clearBtn);
+        saveBtn = findViewById(R.id.saveBtn);
+
         closeBtn.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "Itens salvos com sucesso!", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Compromissos salvos com sucesso!", Toast.LENGTH_LONG).show();
             finish();
         });
+
+        saveBtn.setOnClickListener(view -> saveTask());
+
+        clearBtn.setOnClickListener(view -> clearFields());
     }
 
     private void clearFields(){
@@ -51,23 +60,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void saveTask() {
-        String titleInputcString = titleInput.getText().toString();
+        String titleInputString = titleInput.getText().toString();
         String descriptionInputString = descriptionInput.getText().toString();
         String localeInputString = localeInput.getText().toString();
         String dateInputString = dateInput.getText().toString();
         String hourInputString = hourInput.getText().toString();
 
-        Item novoItem;
+        String frase;
 
-        if (itemInputString.equals("") || (qtdInputString.equals("") || qtdInputString.equals("0")) || shopInputString.equals("")) {
+        Compromisso novoCompromisso;
+
+        if (titleInputString.equals("") || descriptionInputString.equals("") || localeInputString.equals("") || dateInputString.equals("") || hourInputString.equals("")) {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
-            novoItem = new Item(itemInputString, qtdInputString, shopInputString);
-            itens.add(novoItem);
+            novoCompromisso = new Compromisso(titleInputString, descriptionInputString, localeInputString, dateInputString, hourInputString);
+            compromissos.add(novoCompromisso);
             clearFields();
-            Toast.makeText(MainActivity.this, "Item adicionado com sucesso!", Toast.LENGTH_LONG).show();
 
-            qtdTotalItens.setText((String.format("(%d)", itens.size())));
+            if(compromissos.size() != 0){
+                frase = "Compromisso adicionado com sucesso!";
+            } else {
+                frase = "Até logo :)";
+            }
+            Toast.makeText(MainActivity.this, frase, Toast.LENGTH_LONG).show();
         }
     }
 }
