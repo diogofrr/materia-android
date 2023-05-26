@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/closeApp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:background="#FFFFFF"
+                    android:contentDescription="@string/close_app"
+                    app:srcCompat="?attr/actionModeCloseDrawable"
+                    app:tint="#000000"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <TextView
+                    android:id="@+id/mainTitle"
+                    android:layout_width="322dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lista_de_compras"
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/totalItens"
+                    android:layout_width="53dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginVertical="6dp"
+                    android:layout_weight="1"
+                    android:autoText="false"
+                    android:background="#FFC107"
+                    android:gravity="center"
+                    android:text="@string/total_de_itens"
+                    android:textAlignment="textEnd"
+                    android:textColor="#000000"
+                    tools:ignore="Deprecated,RtlCompat,TextViewEdits" />
+
+                <TextView
+                    android:id="@+id/qtdTotalItens"
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="6dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFC107"
+                    android:gravity="center"
+                    android:paddingStart="4dp"
+                    android:text="@string/_0"
+                    android:textAlignment="textStart"
+                    android:textColor="#000000"
+                    tools:ignore="RtlCompat" />
+
+                <Space
+                    android:layout_width="6dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/clearBtn"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9A0000"
+                    android:maxHeight="24dp"
+                    android:text="@string/limpar"
+                    app:icon="@android:drawable/ic_menu_delete"
+                    app:iconPadding="0dp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/itemField"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/itemLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nome_do_item" />
+
+                <EditText
+                    android:id="@+id/itemInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/insira_o_nome_do_item"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
+                    android:importantForAutofill="no" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/qtdField"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/qtdLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/quantidade_de_itens" />
+
+                <EditText
+                    android:id="@+id/qtdInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/insira_a_quantidade_de_itens"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <LinearLayout
+                android:id="@+id/shopField"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/shopLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loja" />
+
+                <EditText
+                    android:id="@+id/shopInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/insira_o_nome_da_loja"
+                    android:inputType="textPersonName"
+                    android:minHeight="48dp"
+                    android:textColorHint="#757575"
+                    android:importantForAutofill="no" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:backgroundTint="#3F51B5"
+                android:text="@string/adicionar"
+                app:icon="@android:drawable/ic_menu_add" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Lista de compras</string>
+    <string name="total_de_itens">Total de itens:</string>
+    <string name="close_app">close-app</string>
+    <string name="lista_de_compras">LISTA DE COMPRAS</string>
+    <string name="limpar">Limpar</string>
+    <string name="nome_do_item">Nome do item:</string>
+    <string name="insira_o_nome_do_item">Insira o nome do item</string>
+    <string name="loja">Loja</string>
+    <string name="adicionar">ADICIONAR</string>
+    <string name="insira_o_nome_da_loja">Insira o nome da loja</string>
+    <string name="insira_a_quantidade_de_itens">Insira a quantidade de itens</string>
+    <string name="quantidade_de_itens">Quantidade de itens</string>
+    <string name="_0">(0)</string>
+</resources>
