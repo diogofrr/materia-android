@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -195,7 +195,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/dd_mm_yyyy"
-                        android:inputType="date"
+                        android:inputType="textPersonName"
                         android:autofillHints="" />
 
                 </LinearLayout>
@@ -225,7 +225,7 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:hint="@string/hh_mm"
-                        android:inputType="time"
+                        android:inputType="textPersonName"
                         android:importantForAutofill="no" />
 
                     <Space
