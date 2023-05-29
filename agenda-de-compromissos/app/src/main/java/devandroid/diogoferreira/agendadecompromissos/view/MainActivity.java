@@ -10,11 +10,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import devandroid.diogoferreira.agendadecompromissos.R;
+import devandroid.diogoferreira.agendadecompromissos.controller.CompromissoController;
 import devandroid.diogoferreira.agendadecompromissos.model.Compromisso;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Compromisso> compromissos = new ArrayList<>();
+    CompromissoController controller;
 
     EditText titleInput;
     EditText descriptionInput;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        controller = new CompromissoController();
 
         titleInput = findViewById(R.id.titleInput);
         descriptionInput = findViewById(R.id.descriptionInput);
@@ -66,23 +69,16 @@ public class MainActivity extends AppCompatActivity {
         String dateInputString = dateInput.getText().toString();
         String hourInputString = hourInput.getText().toString();
 
-        String frase;
-
         Compromisso novoCompromisso;
 
         if (titleInputString.equals("") || descriptionInputString.equals("") || localeInputString.equals("") || dateInputString.equals("") || hourInputString.equals("")) {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
             novoCompromisso = new Compromisso(titleInputString, descriptionInputString, localeInputString, dateInputString, hourInputString);
-            compromissos.add(novoCompromisso);
+            controller.saveCompromissoAction(novoCompromisso);
             clearFields();
 
-            if(compromissos.size() != 0){
-                frase = "Compromisso adicionado com sucesso!";
-            } else {
-                frase = "Até logo :)";
-            }
-            Toast.makeText(MainActivity.this, frase, Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Compromissos salvos com sucesso!", Toast.LENGTH_LONG).show();
         }
     }
 }

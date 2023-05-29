@@ -12,10 +12,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import devandroid.diogoferreira.listadetarefas.R;
+import devandroid.diogoferreira.listadetarefas.controller.TarefaController;
 import devandroid.diogoferreira.listadetarefas.model.Tarefa;
 
 public class MainActivity extends AppCompatActivity {
-    private final ArrayList<Tarefa> tarefas = new ArrayList<>();
+    TarefaController controller;
 
     EditText tarefaInput;
     EditText descricaoInput;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        controller = new TarefaController();
 
         tarefaInput = findViewById(R.id.tarefaInput);
         descricaoInput = findViewById(R.id.descricaoInput);
@@ -62,12 +65,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
             novaTarefa = new Tarefa(tarefaInputString, descricaoInputString, dateInputString);
-            tarefas.add(novaTarefa);
+            controller.saveTarefaAction(novaTarefa);
             clearFields();
-            Toast.makeText(MainActivity.this, "Usuário salvo com sucesso!", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Tarefa salva com sucesso!", Toast.LENGTH_LONG).show();
         }
 
-        Log.i("POOAndroid", "Total: " + tarefas.size());
+        Log.i("POOAndroid", "Total: " + controller.getTarefas().size());
     }
 }
 

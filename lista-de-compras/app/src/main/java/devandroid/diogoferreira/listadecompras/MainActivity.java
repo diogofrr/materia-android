@@ -12,11 +12,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import devandroid.diogoferreira.listadecompras.controller.ItemController;
 import devandroid.diogoferreira.listadecompras.model.Item;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final ArrayList<Item> itens = new ArrayList<>();
+    ItemController controller;
 
     TextView qtdTotalItens;
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        controller = new ItemController();
 
         qtdTotalItens = findViewById(R.id.qtdTotalItens);
 
@@ -68,11 +71,11 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
             novoItem = new Item(itemInputString, qtdInputString, shopInputString);
-            itens.add(novoItem);
-            clearFields();
+            controller.saveItemAction(novoItem);
             Toast.makeText(MainActivity.this, "Item adicionado com sucesso!", Toast.LENGTH_LONG).show();
+            clearFields();
 
-            qtdTotalItens.setText((String.format("(%d)", itens.size())));
+            qtdTotalItens.setText((String.format("(%d)", controller.getItens().size())));
         }
     }
 }
