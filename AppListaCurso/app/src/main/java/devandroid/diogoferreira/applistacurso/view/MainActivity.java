@@ -1,16 +1,16 @@
 package devandroid.diogoferreira.applistacurso.view;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 import devandroid.diogoferreira.applistacurso.R;
-
 import devandroid.diogoferreira.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,21 +49,21 @@ public class MainActivity extends AppCompatActivity {
         save.setOnClickListener(view -> savePerson());
     }
 
-    private void clearFields(){
+    private void clearFields() {
         firstName.setText("");
         secondName.setText("");
         phone.setText("");
         course.setText("");
     }
 
-    private void savePerson(){
+    private void savePerson() {
         String firstNameInput = firstName.getText().toString();
         String secondNameInput = secondName.getText().toString();
         String phoneInput = phone.getText().toString();
         String courseInput = course.getText().toString();
         Pessoa novaPessoa;
 
-        if(firstNameInput.equals("") || secondNameInput.equals("") || phoneInput.equals("") || courseInput.equals("")){
+        if (firstNameInput.equals("") || secondNameInput.equals("") || phoneInput.equals("") || courseInput.equals("")) {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
             novaPessoa = new Pessoa(firstNameInput, secondNameInput, phoneInput, courseInput);
