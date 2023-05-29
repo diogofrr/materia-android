@@ -11,10 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 import devandroid.diogoferreira.applistacurso.R;
+import devandroid.diogoferreira.applistacurso.controller.PessoaController;
 import devandroid.diogoferreira.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Pessoa> pessoas = new ArrayList<>();
+    PessoaController controller;
 
     EditText firstName;
     EditText secondName;
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        controller = new PessoaController();
+        controller.toString();
 
         firstName = findViewById(R.id.firstName);
         secondName = findViewById(R.id.secondName);
@@ -67,11 +71,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
             novaPessoa = new Pessoa(firstNameInput, secondNameInput, phoneInput, courseInput);
-            pessoas.add(novaPessoa);
+
+            controller.savePersonAction(novaPessoa);
             clearFields();
             Toast.makeText(MainActivity.this, "Usuário salvo com sucesso!", Toast.LENGTH_LONG).show();
         }
 
-        Log.i("POOAndroid", "Total: " + pessoas.size());
+        Log.i("POOAndroid", "Total: " + controller.getPessoas().size());
     }
 }
