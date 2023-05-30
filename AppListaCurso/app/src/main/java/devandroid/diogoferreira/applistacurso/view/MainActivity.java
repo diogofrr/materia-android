@@ -1,5 +1,6 @@
 package devandroid.diogoferreira.applistacurso.view;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -15,6 +16,9 @@ import devandroid.diogoferreira.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Pessoa> pessoas = new ArrayList<>();
+
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_listaVip";
 
     EditText firstName;
     EditText secondName;
@@ -61,7 +65,17 @@ public class MainActivity extends AppCompatActivity {
         String secondNameInput = secondName.getText().toString();
         String phoneInput = phone.getText().toString();
         String courseInput = course.getText().toString();
+
+        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
+        SharedPreferences.Editor listaVip = preferences.edit();
+
         Pessoa novaPessoa;
+
+        listaVip.putString("firstName", firstNameInput);
+        listaVip.putString("secondName", secondNameInput);
+        listaVip.putString("phone", phoneInput);
+        listaVip.putString("course", courseInput);
+        listaVip.apply();
 
         if (firstNameInput.equals("") || secondNameInput.equals("") || phoneInput.equals("") || courseInput.equals("")) {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
