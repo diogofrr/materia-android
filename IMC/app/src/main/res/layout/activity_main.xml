@@ -5,7 +5,7 @@
     android:id="@+id/calcularImc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/title"
@@ -47,7 +47,7 @@
         android:textColorHint="#757575"
         app:layout_constraintStart_toStartOf="@+id/labelPeso"
         app:layout_constraintTop_toBottomOf="@+id/labelPeso"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,LabelFor" />
 
     <TextView
         android:id="@+id/labelAltura"
@@ -69,16 +69,16 @@
         android:ems="10"
         android:hint="@string/input_altura"
         android:importantForAutofill="no"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         android:labelFor="@id/labelAltura"
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintStart_toStartOf="@+id/labelAltura"
         app:layout_constraintTop_toBottomOf="@+id/labelAltura"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck,LabelFor" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnCalcularImc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
@@ -89,14 +89,15 @@
         app:layout_constraintTop_toBottomOf="@+id/inputAltura" />
 
     <TextView
-        android:id="@+id/resultadoimc"
+        android:id="@+id/resultadoImc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/resultado"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalcularImc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
