@@ -3,6 +3,7 @@ package devandroid.diogoferreira.listadecompras;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,9 @@ import devandroid.diogoferreira.listadecompras.controller.ItemController;
 import devandroid.diogoferreira.listadecompras.model.Item;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences preferences;
+    public static final String NOME_PREFERENCES = "pref_itens";
 
     ItemController controller;
 
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences.Editor listaItens = preferences.edit();
+
         controller = new ItemController();
 
         qtdTotalItens = findViewById(R.id.qtdTotalItens);
@@ -46,26 +52,30 @@ public class MainActivity extends AppCompatActivity {
         clearBtn = findViewById(R.id.clearBtn);
         saveBtn = findViewById(R.id.saveBtn);
 
-        clearBtn.setOnClickListener(view -> clearFields());
-        saveBtn.setOnClickListener(view -> saveTask());
+        clearBtn.setOnClickListener(view -> clearFields(listaItens));
+        saveBtn.setOnClickListener(view -> saveTask(listaItens));
         closeApp.setOnClickListener(view -> {
             Toast.makeText(MainActivity.this, "Itens salvos com sucesso!", Toast.LENGTH_LONG).show();
             finish();
         });
     }
 
-    private void clearFields(){
+    private void clearFields(SharedPreferences.Editor listaItensProp){
         itemInput.setText("");
         qtdInput.setText("");
         shopInput.setText("");
+
+        listaItensProp.clear();
     }
 
     @SuppressLint("DefaultLocale")
-    private void saveTask() {
+    private void saveTask(SharedPreferences.Editor listaItensProp) {
         String itemInputString = itemInput.getText().toString();
         String qtdInputString = qtdInput.getText().toString();
         String shopInputString = shopInput.getText().toString();
         Item novoItem;
+
+        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
 
         if (itemInputString.equals("") || (qtdInputString.equals("") || qtdInputString.equals("0")) || shopInputString.equals("")) {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
@@ -73,7 +83,13 @@ public class MainActivity extends AppCompatActivity {
             novoItem = new Item(itemInputString, qtdInputString, shopInputString);
             controller.saveItemAction(novoItem);
             Toast.makeText(MainActivity.this, "Item adicionado com sucesso!", Toast.LENGTH_LONG).show();
-            clearFields();
+
+            listaItensProp.putString("item", itemInputString);
+            listaItensProp.putString("qtd", qtdInputString);
+            listaItensProp.putString("shop", shopInputString);
+            listaItensProp.apply();
+
+            clearFields(listaItensProp);
 
             qtdTotalItens.setText((String.format("(%d)", controller.getItens().size())));
         }
