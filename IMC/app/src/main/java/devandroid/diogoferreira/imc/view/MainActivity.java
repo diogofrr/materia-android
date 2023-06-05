@@ -4,16 +4,11 @@ import static java.lang.String.format;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Locale;
 
 import devandroid.diogoferreira.imc.R;
 import devandroid.diogoferreira.imc.controller.PessoaController;
@@ -35,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        controller = new PessoaController();
+        controller = new PessoaController(MainActivity.this);
 
         inputAltura = findViewById(R.id.inputAltura);
         inputPeso = findViewById(R.id.inputPeso);
@@ -61,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 novaPessoa = new Pessoa(pesoValue, alturaValue);
 
                 calculoImc = Math.ceil(controller.calcularIMC(novaPessoa));
-                calculoImcFormated = format(Locale.ENGLISH,"Resultado: %.2f%n", calculoImc);
+                calculoImcFormated = format("Resultado: %.2f%n", calculoImc);
 
                 resultadoImc.setText(calculoImcFormated);
             } else {

@@ -38,7 +38,7 @@ public class PessoaController {
         if (firstName.equals("") || secondName.equals("") || phone.equals("") || course.equals("")) {
             throw new Exception("Não há dados salvos.");
         } else {
-            return new Pessoa(firstName, secondName, phone, course);
+            return new Pessoa(firstName, secondName, course, phone);
         }
     }
 }

@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
     EditText descricaoInput;
     EditText dateInput;
 
-    Button salvar;
-    Button limpar;
+    Button salvarBtn;
+    Button limparBtn;
+    Button pesquisarBtn;
     ImageButton encerrarApp;
 
     @Override
@@ -31,31 +32,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        controller = new TarefaController();
+        controller = new TarefaController(MainActivity.this);
 
         tarefaInput = findViewById(R.id.tarefaInput);
         descricaoInput = findViewById(R.id.descricaoInput);
         dateInput = findViewById(R.id.dateInput);
 
-        salvar = findViewById(R.id.salvar);
-        limpar = findViewById(R.id.limpar);
+        salvarBtn = findViewById(R.id.salvarBtn);
+        limparBtn = findViewById(R.id.limparBtn);
+        pesquisarBtn = findViewById(R.id.pesquisarBtn);
         encerrarApp = findViewById(R.id.encerrarApp);
 
-        limpar.setOnClickListener(view -> clearFields());
-        salvar.setOnClickListener(view -> saveTask());
+        limparBtn.setOnClickListener(view -> deletarTarefa());
+        salvarBtn.setOnClickListener(view -> salvarTarefas());
         encerrarApp.setOnClickListener(view -> {
             Toast.makeText(MainActivity.this, "Até logo!", Toast.LENGTH_LONG).show();
             finish();
         });
+        pesquisarBtn.setOnClickListener(view -> procurar());
     }
 
-    private void clearFields(){
+    private void limparCampos(){
         tarefaInput.setText("");
         descricaoInput.setText("");
         dateInput.setText("");
     }
 
-    private void saveTask(){
+    private void deletarTarefa(){
+        limparCampos();
+        controller.limparTarefaAction();
+
+        Toast.makeText(MainActivity.this, "Tarefa deletada com sucesso!", Toast.LENGTH_LONG).show();
+    }
+
+    private void salvarTarefas(){
         String tarefaInputString = tarefaInput.getText().toString();
         String descricaoInputString = descricaoInput.getText().toString();
         String dateInputString = dateInput.getText().toString();
@@ -65,12 +75,28 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
             novaTarefa = new Tarefa(tarefaInputString, descricaoInputString, dateInputString);
-            controller.saveTarefaAction(novaTarefa);
-            clearFields();
+            controller.salvarTarefaAction(novaTarefa);
+
+            limparCampos();
+
             Toast.makeText(MainActivity.this, "Tarefa salva com sucesso!", Toast.LENGTH_LONG).show();
         }
 
         Log.i("POOAndroid", "Total: " + controller.getTarefas().size());
     }
+
+    public void procurar() {
+        try {
+            Tarefa tarefa = controller.procurarAction();
+
+            tarefaInput.setText(tarefa.getNomeTarefa());
+            descricaoInput.setText(tarefa.getDescricaoTarefa());
+            dateInput.setText(tarefa.getData());
+
+        } catch (Exception e) {
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 }
 

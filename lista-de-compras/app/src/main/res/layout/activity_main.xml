@@ -67,9 +67,19 @@
                 android:layout_marginHorizontal="16dp"
                 android:orientation="horizontal">
 
+                <ImageButton
+                    android:id="@+id/searchBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#673AB7"
+                    app:srcCompat="@android:drawable/ic_menu_search"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:contentDescription="TODO" />
+
                 <TextView
                     android:id="@+id/totalItens"
-                    android:layout_width="53dp"
+                    android:layout_width="65dp"
                     android:layout_height="36dp"
                     android:layout_gravity="center|start"
                     android:layout_marginVertical="6dp"
@@ -84,34 +94,29 @@
 
                 <TextView
                     android:id="@+id/qtdTotalItens"
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"
+                    android:layout_width="20dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
                     android:layout_marginVertical="6dp"
                     android:layout_marginStart="0dp"
                     android:layout_weight="1"
                     android:background="#FFC107"
-                    android:gravity="center"
+                    android:gravity="center|start"
                     android:paddingStart="4dp"
                     android:text="@string/_0"
                     android:textAlignment="textStart"
                     android:textColor="#000000"
                     tools:ignore="RtlCompat" />
 
-                <Space
-                    android:layout_width="6dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <Button
+                <ImageButton
                     android:id="@+id/clearBtn"
-                    android:layout_width="80dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:backgroundTint="#9A0000"
-                    android:maxHeight="24dp"
-                    android:text="@string/limpar"
-                    app:icon="@android:drawable/ic_menu_delete"
-                    app:iconPadding="0dp" />
+                    android:backgroundTint="#9E0000"
+                    app:srcCompat="@android:drawable/ic_menu_delete"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
             </LinearLayout>
 
             <Space
