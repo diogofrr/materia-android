@@ -27,10 +27,9 @@ public class Pessoa {
     Button save;
     Button clear;
 
-    public Pessoa(String primeiroNome, String segundoNome, String nomeCursoDesejado, String telefoneDeContato) {
+    public Pessoa(String primeiroNome, String segundoNome, String telefoneDeContato) {
         this.primeiroNome = primeiroNome;
         this.segundoNome = segundoNome;
-        this.nomeCursoDesejado = nomeCursoDesejado;
         this.telefoneDeContato = telefoneDeContato;
     }
 

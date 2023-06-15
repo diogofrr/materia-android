@@ -33,12 +33,11 @@ public class PessoaController {
         String firstName = preferences.getString("firstName", "");
         String secondName = preferences.getString("secondName", "");
         String phone = preferences.getString("phone", "");
-        String course = preferences.getString("course", "");
 
-        if (firstName.equals("") || secondName.equals("") || phone.equals("") || course.equals("")) {
+        if (firstName.equals("") || secondName.equals("") || phone.equals("")) {
             throw new Exception("Não há dados salvos.");
         } else {
-            return new Pessoa(firstName, secondName, course, phone);
+            return new Pessoa(firstName, secondName, phone);
         }
     }
 }

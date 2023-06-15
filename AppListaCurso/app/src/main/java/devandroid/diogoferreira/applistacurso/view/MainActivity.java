@@ -2,28 +2,35 @@ package devandroid.diogoferreira.applistacurso.view;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import devandroid.diogoferreira.applistacurso.R;
+import devandroid.diogoferreira.applistacurso.controller.CursoController;
 import devandroid.diogoferreira.applistacurso.controller.PessoaController;
+import devandroid.diogoferreira.applistacurso.model.Curso;
 import devandroid.diogoferreira.applistacurso.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<Pessoa> pessoas = new ArrayList<>();
 
-    PessoaController controller;
+    PessoaController pessoaController;
+    CursoController cursoController;
+    List<Curso> listaCurso;
 
     EditText firstName;
     EditText secondName;
     EditText phone;
-    EditText course;
+    Spinner courseSpn;
 
     Button send;
     Button save;
@@ -36,17 +43,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        controller = new PessoaController(MainActivity.this);
+        pessoaController = new PessoaController(MainActivity.this);
+
+        cursoController = new CursoController();
+        listaCurso = cursoController.getListaCursos();
 
         firstName = findViewById(R.id.firstName);
         secondName = findViewById(R.id.secondName);
         phone = findViewById(R.id.phone);
-        course = findViewById(R.id.course);
+        courseSpn = findViewById(R.id.course);
         searchButton = findViewById(R.id.searchButton);
 
         send = findViewById(R.id.send);
         save = findViewById(R.id.save);
         clear = findViewById(R.id.clear);
+
+        courseSpn.setAdapter(new ArrayAdapter<Curso>(this, android.R.layout.simple_list_item_1, listaCurso));
 
         clear.setOnClickListener(view -> clearFields());
 
@@ -62,17 +74,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void findPerson() {
         try {
-            Pessoa pessoa = controller.findAction();
+            Pessoa pessoa = pessoaController.findAction();
 
             String primeiroNomeData = pessoa.getPrimeiroNome();
             String segundoNomeData = pessoa.getSegundoNome();
             String phoneData = pessoa.getTelefoneDeContato();
-            String courseData = pessoa.getNomeCursoDesejado();
 
             firstName.setText(primeiroNomeData);
             secondName.setText(segundoNomeData);
             phone.setText(phoneData);
-            course.setText(courseData);
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
@@ -83,34 +93,31 @@ public class MainActivity extends AppCompatActivity {
         firstName.setText("");
         secondName.setText("");
         phone.setText("");
-        course.setText("");
 
         Toast.makeText(MainActivity.this, "Dados limpos com sucesso!", Toast.LENGTH_LONG).show();
 
-        controller.clearAction();
+        pessoaController.clearAction();
     }
 
     private void savePerson() {
         String firstNameInput = firstName.getText().toString();
         String secondNameInput = secondName.getText().toString();
         String phoneInput = phone.getText().toString();
-        String courseInput = course.getText().toString();
 
         Pessoa novaPessoa;
 
-        if (firstNameInput.equals("") || secondNameInput.equals("") || phoneInput.equals("") || courseInput.equals("")) {
+        if (firstNameInput.equals("") || secondNameInput.equals("") || phoneInput.equals("")) {
             Toast.makeText(MainActivity.this, "Verifique os campos e tente novamente.", Toast.LENGTH_LONG).show();
         } else {
-            novaPessoa = new Pessoa(firstNameInput, secondNameInput, phoneInput, courseInput);
+            novaPessoa = new Pessoa(firstNameInput, secondNameInput, phoneInput);
 
             pessoas.add(novaPessoa);
 
-            controller.saveAction(novaPessoa);
+            pessoaController.saveAction(novaPessoa);
 
             firstName.setText("");
             secondName.setText("");
             phone.setText("");
-            course.setText("");
 
             Toast.makeText(MainActivity.this, "Usuário salvo com sucesso!", Toast.LENGTH_LONG).show();
         }
