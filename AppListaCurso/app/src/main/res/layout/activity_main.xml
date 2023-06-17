@@ -9,169 +9,183 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="75dp">
 
-    <TextView
-        android:id="@+id/mainTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/title"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/firstName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="8dp"
-        android:layout_marginTop="4dp"
-        android:height="20dp"
-        android:autofillHints="name"
-        android:ems="10"
-        android:hint="@string/input_first_name"
-        android:inputType="text"
-        android:textColor="#000000"
-        android:textColorHint="#757575"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstNameLabel"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="8dp"
-        android:height="20dp"
-        android:autofillHints="phone"
-        android:ems="10"
-        android:hint="@string/input_phone"
-        android:inputType="text"
-        android:textColor="#000000"
-        android:textColorHint="#757575"
-        app:layout_constraintStart_toStartOf="@+id/phoneLabel"
-        app:layout_constraintTop_toBottomOf="@+id/phoneLabel"
-        tools:ignore="TextFields" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/send"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#3F51B5"
-        android:text="@string/btn_end_form"
-        app:layout_constraintTop_toBottomOf="@+id/phone"
-        tools:layout_editor_absoluteX="24dp" />
+            <TextView
+                android:id="@+id/mainTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="16dp"
+                android:gravity="center"
+                android:text="@string/title"
+                android:textColor="#000000"
+                android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#4CAF50"
-        android:text="@string/save"
-        android:textColor="#263238"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainTitle"
-        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/clear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#E80000"
-        android:text="@string/clear"
-        app:layout_constraintEnd_toStartOf="@+id/save"
-        app:layout_constraintTop_toTopOf="@+id/save" />
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="#4CAF50"
+                    android:text="@string/save"
+                    android:textColor="#263238"
+                    tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#673AB7"
-        app:layout_constraintEnd_toStartOf="@+id/clear"
-        app:layout_constraintTop_toTopOf="@+id/clear"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#E80000"
+                    android:text="@string/clear" />
 
-    <TextView
-        android:id="@+id/firstNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Nome"
-        app:layout_constraintStart_toStartOf="@+id/firstName"
-        app:layout_constraintTop_toBottomOf="@+id/save"
-        tools:ignore="HardcodedText" />
+                <ImageButton
+                    android:id="@+id/searchButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="#673AB7"
+                    app:srcCompat="@android:drawable/ic_menu_search"
+                    tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/lastNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="Sobrenome"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstName"
-        tools:ignore="HardcodedText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/secondName"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="8dp"
-        android:height="20dp"
-        android:autofillHints="lastname"
-        android:ems="10"
-        android:hint="@string/input_last_name"
-        android:inputType="text"
-        android:textColor="#000000"
-        android:textColorHint="#757575"
-        app:layout_constraintStart_toStartOf="@+id/lastNameLabel"
-        app:layout_constraintTop_toBottomOf="@+id/lastNameLabel" />
+                <TextView
+                    android:id="@+id/firstNameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="Nome"
+                    tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/courseLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="Selecione um curso"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondName"
-        tools:ignore="HardcodedText" />
+                <EditText
+                    android:id="@+id/firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginTop="4dp"
+                    android:height="20dp"
+                    android:autofillHints="name"
+                    android:ems="10"
+                    android:hint="@string/input_first_name"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textColorHint="#757575"
+                    tools:ignore="MissingConstraints" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/phoneLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="Telefone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/course"
-        tools:ignore="HardcodedText" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/course"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="8dp"
-        android:contentDescription="Selecione um curso"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseLabel"
-        tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
+                <TextView
+                    android:id="@+id/lastNameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Sobrenome"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/secondName"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="8dp"
+                    android:height="20dp"
+                    android:autofillHints="lastname"
+                    android:ems="10"
+                    android:hint="@string/input_last_name"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textColorHint="#757575" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/phoneLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Telefone"
+                    tools:ignore="HardcodedText" />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="8dp"
+                    android:height="20dp"
+                    android:autofillHints="phone"
+                    android:ems="10"
+                    android:hint="@string/input_phone"
+                    android:inputType="text"
+                    android:textColor="#000000"
+                    android:textColorHint="#757575"
+                    tools:ignore="TextFields" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/courseLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Selecione um curso"
+                    tools:ignore="HardcodedText" />
+
+                <Spinner
+                    android:id="@+id/course"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="Selecione um curso"
+                    tools:ignore="HardcodedText,DuplicateSpeakableTextCheck" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/send"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="#3F51B5"
+                android:text="@string/btn_end_form" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

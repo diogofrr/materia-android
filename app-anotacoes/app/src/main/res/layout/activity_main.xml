@@ -37,7 +37,7 @@
                     android:contentDescription="TODO"
                     app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
                     app:tint="#DA0000"
-                    tools:ignore="ContentDescription,HardcodedText" />
+                    tools:ignore="ContentDescription,HardcodedText,DuplicateSpeakableTextCheck" />
 
                 <TextView
                     android:id="@+id/titleText"
