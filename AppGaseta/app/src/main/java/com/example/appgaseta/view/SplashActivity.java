@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.appgaseta.R;
+import com.example.appgaseta.database.GasEtaDB;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +25,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                GasEtaDB db = new GasEtaDB(SplashActivity.this);
+
                 Intent TelaPrincipal = new Intent(SplashActivity.this, MainActivityAppGaseta.class);
                 startActivity(TelaPrincipal);
                 finish();

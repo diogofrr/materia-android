@@ -13,7 +13,7 @@ public class CombustivelController {
 
     SharedPreferences.Editor listaVip;
 
-    public static final String NOME_PREFERENCES = "pref_listavip";
+    public static final String NOME_PREFERENCES = "pref_gaseta";
 
     public CombustivelController(MainActivityAppGaseta mainActivityAppGaseta) {
         preferences = mainActivityAppGaseta.getSharedPreferences(NOME_PREFERENCES, 0);
