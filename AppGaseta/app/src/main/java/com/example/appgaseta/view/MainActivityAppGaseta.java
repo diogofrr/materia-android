@@ -113,46 +113,7 @@ public class MainActivityAppGaseta extends AppCompatActivity {
                     btnFinalizar.setEnabled(false);
                     btnResetar.setEnabled(false);
                 }
-
-
-
             }
         });
     }
-
-    /*private void calcularGasEta(){
-
-        float GasolinaValor;
-        float EtanolValor;
-        double calculoGasEta;
-        String calculoGasEtaFormatado;
-
-
-        try{
-            GasolinaValor = Float.parseFloat(editPrecogasolina.getText().toString());
-            EtanolValor = Float.parseFloat(editPrecoetanol.getText().toString());
-
-            if(GasolinaValor > 0 && EtanolValor > 0){
-                combustiveis = new Combustiveis(GasolinaValor, EtanolValor);
-
-                calculoGasEta = controller.calcularGasEta(combustiveis);
-                calculoGasEtaFormatado = format(Locale.ENGLISH,"Resultado: %.2f%n", calculoGasEta);
-
-                resultadoGasEta.setText(calculoGasEtaFormatado);
-                if (calculoGasEta <= 0.7){
-                    calculoGasEtaFormatado = "Resultado: Abasteça com etanol";
-                    resultadoGasEta.setText(calculoGasEtaFormatado);
-                }else{
-                    calculoGasEtaFormatado = "Resultado: Abasteça com gasolina";
-                    resultadoGasEta.setText(calculoGasEtaFormatado);
-                }
-            } else {
-                throw new NumberFormatException();
-            }
-
-        } catch (NumberFormatException e){
-            Toast.makeText(MainActivityAppGaseta.this, "Valor inválido", Toast.LENGTH_LONG).show();
-        }
-
-    }*/
 }

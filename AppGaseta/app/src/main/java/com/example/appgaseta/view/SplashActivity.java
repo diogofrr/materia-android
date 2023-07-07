@@ -9,9 +9,11 @@ import android.os.Handler;
 import com.example.appgaseta.R;
 import com.example.appgaseta.database.GasEtaDB;
 
+import java.util.concurrent.Future;
+
 public class SplashActivity extends AppCompatActivity {
 
-    public static final int TIME_OUT_SPLASH = 3000;
+    public static final int TIME_OUT_SPLASH = 10000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,16 +24,14 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void contarTelaSplash() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler().postDelayed(() -> {
 
-                GasEtaDB db = new GasEtaDB(SplashActivity.this);
+            GasEtaDB db = new GasEtaDB(SplashActivity.this);
 
-                Intent TelaPrincipal = new Intent(SplashActivity.this, MainActivityAppGaseta.class);
-                startActivity(TelaPrincipal);
-                finish();
-            }
+            Intent TelaPrincipal = new Intent(SplashActivity.this, MainActivityAppGaseta.class);
+            startActivity(TelaPrincipal);
+            finish();
         },TIME_OUT_SPLASH);
     }
+
 }
