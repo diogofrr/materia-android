@@ -3,6 +3,7 @@ package com.example.appgaseta.model;
 public class Combustiveis {
     private float gasolina;
     private float etanol;
+    private String resutado;
 
     public Combustiveis(){
 
@@ -31,12 +32,20 @@ public class Combustiveis {
         return etanol;
     }
 
+    public String getResutado() {
+        return resutado;
+    }
+
+    public void setResutado(String resutado) {
+        this.resutado = resutado;
+    }
 
     @Override
     public String toString() {
         return "Combustiveis{" +
-                "gasolina='" + gasolina + '\'' +
-                ", etanol='" + etanol + '\'' +
+                ", gasolina=" + gasolina +
+                ", etanol=" + etanol +
+                ", resutado='" + resutado + '\'' +
                 '}';
     }
 }

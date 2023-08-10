@@ -1,7 +1,5 @@
 package com.example.appgaseta.view;
 
-import static java.lang.String.format;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -14,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.appgaseta.R;
-import com.example.appgaseta.controller.Calculargaseta;
 import com.example.appgaseta.controller.CombustivelController;
 import com.example.appgaseta.model.Combustiveis;
 
@@ -102,9 +99,12 @@ public class MainActivityAppGaseta extends AppCompatActivity {
                     float gas = combustiveis.setGasolina(Float.parseFloat(editPrecogasolina.getText().toString()));
                     float eta = combustiveis.setEtanol(Float.parseFloat(editPrecoetanol.getText().toString()));
 
-                    String resultado = Calculargaseta.calculargaseta(gas,eta);
+                    String resultado = controller.calculargaseta(gas, eta);
+                    String resultadoMsg = "Abasteça com " + resultado;
 
-                    resultadoGasEta.setText(resultado);
+                    combustiveis.setResutado(resultadoMsg);
+
+                    resultadoGasEta.setText(resultadoMsg);
                     Toast.makeText(MainActivityAppGaseta.this, "Calculando...", Toast.LENGTH_LONG).show();
                     controller.salvar(combustiveis);
                     btnFinalizar.setEnabled(true);

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Agenda de Compromissos</string>
+    <string name="agenda">AGENDA</string>
+    <string name="todo">TODO</string>
+    <string name="salvar">salvar</string>
+    <string name="hh_mm">HH:MM</string>
+    <string name="hor_rio">Horário</string>
+    <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="data">Data</string>
+    <string name="insira_o_local_do_compromisso">Insira o local do compromisso</string>
+    <string name="local">Local</string>
+    <string name="insira_a_descri_o_do_compromisso">Insira a descrição do compromisso</string>
+    <string name="descri_o">Descrição</string>
+    <string name="insira_o_t_tulo_do_compromisso">Insira o título do compromisso</string>
+    <string name="t_tulo">Título</string>
+</resources>

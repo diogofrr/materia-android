@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Gerenciador de tarefas</string>
+    <string name="mainTitle">Tarefas</string>
+    <string name="nova_tarefa">+ Criar nova tarefa</string>
+    <string name="inputTarefa">Insira a descrição da tarefa</string>
+    <string name="tituloPrincipal">Título</string>
+    <string name="data">DD/MM/YYYY</string>
+    <string name="descricao">Descrição</string>
+    <string name="tarefa">Insira o título da tarefa</string>
+    <string name="vencimento">Data de vencimento</string>
+    <string name="editar_tarefa">Editar tarefa</string>
+    <string name="todo">TODO</string>
+    <string name="salvar">SALVAR</string>
+    <string name="concluir_tarefa">Concluir tarefa</string>
+</resources>

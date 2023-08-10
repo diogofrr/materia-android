@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Aplicativo Lista de Compras</string>
+    <string name="lista_de_compras">Lista de Compras</string>
+    <string name="botao">Button</string>
+    <string name="insira_o_nome_do_item">Insira o nome do item</string>
+    <string name="itens_cadastrados">ITENS CADASTRADOS</string>
+    <string name="cadastrar_item">CADASTRAR ITEM</string>
+    <string name="insira_a_quantidade">Insira a quantidade</string>
+</resources>
